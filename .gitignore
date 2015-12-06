@@ -1,0 +1,5 @@
+__pycache__/*
+/hack16/__pycache__/urls.cpython-34.pyc
+*/__pycache__
+*/migrations
+*.py#
