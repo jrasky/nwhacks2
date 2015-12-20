@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 import hack16.urls
+import hack16.views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^hack16/', include(hack16.urls)),
+    url(r'', include(hack16.urls)),
 ]

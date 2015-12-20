@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'djangobower',
     'hack16'
 )
 
@@ -50,6 +51,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
 )
 
 ROOT_URLCONF = 'nwhacks2.urls'
@@ -106,3 +113,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT_PATH = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    STATIC_ROOT_PATH
+]
+
+# django-bower
+
+BOWER_COMPONENTS_ROOT = STATIC_ROOT_PATH
+
+BOWER_INSTALLED_APPS = (
+    "app-router#~2.6.1",
+    "PolymerElements/iron-ajax#~1.0.6",
+    "PolymerElements/iron-form#~1.0.10",
+    "PolymerElements/iron-image#~1.0.2",
+    "momentjs#~2.10.6",
+    "PolymerElements/paper-button#~1.0.8",
+    "PolymerElements/paper-card#~1.0.6",
+    "PolymerElements/paper-checkbox#~1.0.12",
+    "PolymerElements/paper-dialog#~1.0.2",
+    "PolymerElements/paper-dropdown-menu#~1.0.5",
+    "PolymerElements/paper-input",
+    "PolymerElements/paper-item#~1.0.5",
+    "PolymerElements/paper-menu#~1.1.1",
+    "PolymerElements/paper-scroll-header-panel#~1.0.8",
+    "PolymerElements/paper-toolbar#~1.0.4",
+    "Polymer/polymer#^1.1.0",
+    "PolymerElements/paper-icon-button#~1.0.5"
+)
